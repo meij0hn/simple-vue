@@ -11,10 +11,6 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/*',
-    redirect: { name: 'route-name' }
-  },
-  {
     path: '/',
     name: 'Home',
     component: Home
@@ -22,7 +18,8 @@ const routes = [
   {
     path: '/logout-e3',
     name: 'logoute3',
-    component: logoute3
+    component: logoute3,
+    redirect: { name: 'logout-e3'}
   },
   {
     path: '/cek-payment-order',
@@ -55,7 +52,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
