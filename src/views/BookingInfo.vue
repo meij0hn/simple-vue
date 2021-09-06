@@ -33,9 +33,20 @@
             <div class="row mt-3" :class="flex">
                 <div class="col">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="submit" class="btn btn-success mr-1 mb-1" @click="runGenerateSchedule">Generate Schedule</button>
-                        <button type="submit" class="btn btn-success mr-1 mb-1" @click="runRecalculateBalance">Recalculate Balance</button>
-                        <button type="submit" class="btn btn-success mb-1" @click="runRecalculatePenalty">Recalculate Penalty</button>
+                        <button type="submit" class="btn btn-success mr-1 mb-1" @click="runGenerateSchedule">
+                            <b-icon-gear-wide-connected /> Generate Schedule
+                        </button>
+                        <button type="submit" class="btn btn-success mr-1 mb-1" @click="runRecalculateBalance">
+                            <b-icon-gear-wide /> Recalculate Balance
+                        </button>
+                        <button type="submit" class="btn btn-success mr-1 mb-1" @click="runRecalculatePenalty">
+                            <b-icon-gear /> Recalculate Penalty
+                        </button>
+                        <button type="submit" class="btn btn-success mr-1 mb-1" @click="runDownloadBPExcel">
+                            <b-icon-download /> Booking Profile
+                        </button>
+
+                        
                     </div>
                 </div>
             </div>
@@ -143,6 +154,7 @@ export default {
             dataBook: {},
             dataPrice: {},
             dataPenalty: {},
+            dataUniversal: {},
             
         }
     },
@@ -153,6 +165,9 @@ export default {
         setDataPrice(data) {
             this.dataPrice = data
             this.dataPenalty = data.penalty
+        },
+        setDataUniversal(data) {
+            this.dataUniversal = data
         },
         bookingDetail(item) {
             this.load = true
@@ -286,8 +301,52 @@ export default {
                         })
                     }
                 })
-                        
-        },  
+        },
+        runDownloadFile(item1, item2, item3) {
+            axios({
+                url: 'https://api2.lippo.homes//File/DownloadTempFile',
+                method: 'GET',
+                params: {
+                    "fileName": item1,
+                    "fileType": item2,
+                    "fileToken": item3,
+                },
+                responseType: 'blob',
+
+            })
+            .then((response) => {
+                console.log(response)
+                    var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                    var fileLink = document.createElement('a');
+                    fileLink.href = fileURL;
+                    fileLink.setAttribute('download', item1 + '.xlsx');
+                    document.body.appendChild(fileLink);
+                    fileLink.click();
+            });
+        },
+        getUniversal(item) {
+            axios
+            .get("https://api2.lippo.homes//api/services/app/PSASMain/GetUniversalPSASToExportSqlStringGenerate?bookCode=" + item)
+            .then((response) => {
+                this.setDataUniversal(response.data.result)
+                if(this.dataUniversal) {
+                    this.runDownloadFile(this.dataUniversal.fileName, this.dataUniversal.fileType, this.dataUniversal.fileToken)
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+                this.$toast.error(error.response.data.error.message, {
+                    type: "error",
+                    position: "top-right",
+                    duration: 3000,
+                    dismissible: true,
+                });
+                this.load = false
+            })
+        },
+        runDownloadBPExcel() {
+            this.getUniversal(this.dataBook.bookCode)
+        },
         runTask() {
             if(this.bookcode) {
                 this.bookingDetail(this.bookcode)
