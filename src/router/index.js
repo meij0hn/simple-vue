@@ -18,8 +18,7 @@ const routes = [
   {
     path: '/logout-e3',
     name: 'logoute3',
-    component: logoute3,
-    redirect: { name: 'logout-e3'}
+    component: logoute3
   },
   {
     path: '/cek-payment-order',
