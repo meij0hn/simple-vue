@@ -13,16 +13,22 @@ import moment from 'moment'
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+import JsonExcel from "vue-json-excel";
+
 Vue.use(VueToast)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(VueSweetalert2);
+Vue.component("downloadExcel", JsonExcel);
 
 Vue.config.productionTip = false
+
 
 Vue.filter('currency', function(val){
   return accounting.formatNumber(val)
 })
+
+
 
 Vue.filter('formatDate', function(value) {
   if (value) {

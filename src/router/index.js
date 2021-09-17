@@ -6,6 +6,7 @@ import cekpaymentorder from '../views/Cek-Payment-Order.vue'
 import Vat from '../views/Vat.vue'
 import bookinginfo from '../views/BookingInfo.vue'
 import cancel from '../views/Cancel.vue'
+import testjsontoexcel from '../views/Testjsontoexcel.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
     path: '/cancel',
     name: 'cancel',
     component: cancel
+  },
+  {
+    path: '/testjsontoexcel',
+    name: 'testjsontoexcel',
+    component: testjsontoexcel
   },
   {
     path: '/about',
