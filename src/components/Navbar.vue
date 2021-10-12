@@ -17,7 +17,7 @@
               <router-link to="/cek-payment-order" class="dropdown-item">Release Unit from Midtrans</router-link>
               <router-link to="/vat" class="dropdown-item">VAT</router-link>
               <router-link to="/bookinginfo" class="dropdown-item">Booking Info</router-link>
-              <router-link to="/cancel" class="dropdown-item">Cancel Info</router-link>
+              <router-link to="/cancel" class="dropdown-item">Rollback Cancel Unit</router-link>
             
             </b-nav-item-dropdown>
           </b-navbar-nav>

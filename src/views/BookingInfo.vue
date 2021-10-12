@@ -2,7 +2,7 @@
     <div class="bookinginfo">
         <Navbar />
         <div class="container">
-            <h3>Booking Info</h3>
+            <h3>Rollback Cancel Unit</h3>
             <hr />
             <div class="row mt-2">
                 <div class="col">
