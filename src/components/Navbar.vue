@@ -14,7 +14,7 @@
             <b-nav-item-dropdown text="Menu" right>
 
               <router-link to="/logout-e3" class="dropdown-item">Logout E3</router-link>
-              <router-link to="/cek-payment-order" class="dropdown-item">Cek Payment Order</router-link>
+              <router-link to="/cek-payment-order" class="dropdown-item">Release Unit from Midtrans</router-link>
               <router-link to="/vat" class="dropdown-item">VAT</router-link>
               <router-link to="/bookinginfo" class="dropdown-item">Booking Info</router-link>
               <router-link to="/cancel" class="dropdown-item">Cancel Info</router-link>

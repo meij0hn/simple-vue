@@ -2,7 +2,7 @@
   <div class="cek-payment-order">
     <Navbar />
     <div class="container">
-      <h3>Cek Payment Order</h3>
+      <h3>Release Unit from Midtrans</h3>
       <hr />
       <div class="row mt-2">
         <div class="col">
