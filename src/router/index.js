@@ -7,6 +7,7 @@ import Vat from '../views/Vat.vue'
 import bookinginfo from '../views/BookingInfo.vue'
 import cancel from '../views/Cancel.vue'
 import testjsontoexcel from '../views/Testjsontoexcel.vue'
+import paymentremarks from '../views/Payment-remarks.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/testjsontoexcel',
     name: 'testjsontoexcel',
     component: testjsontoexcel
+  },
+  {
+    path: '/paymentremarks',
+    name: 'paymentremarks',
+    component: paymentremarks
   },
   {
     path: '/about',

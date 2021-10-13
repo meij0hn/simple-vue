@@ -18,6 +18,7 @@
               <router-link to="/vat" class="dropdown-item">VAT</router-link>
               <router-link to="/bookinginfo" class="dropdown-item">Booking Info</router-link>
               <router-link to="/cancel" class="dropdown-item">Rollback Cancel Unit</router-link>
+              <router-link to="/paymentremarks" class="dropdown-item">Change Payment Remarks</router-link>
             
             </b-nav-item-dropdown>
           </b-navbar-nav>
