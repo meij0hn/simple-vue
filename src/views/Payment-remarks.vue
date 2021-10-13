@@ -46,6 +46,11 @@
                         <table class="table table-sm table-borderless">
                             <tbody>
                                 <tr>
+                                    <td width="30%">Bookcode</td>
+                                    <td width="1%">:</td>
+                                    <td>{{ dataPmt.bookcode }}</td>
+                                </tr>
+                                <tr>
                                     <td width="30%">Transno</td>
                                     <td width="1%">:</td>
                                     <td>{{ dataPmt.transno }}</td>
@@ -70,6 +75,11 @@
                     <div :class="flexUpdateRemarks">
                         <table class="table table-sm table-borderless">
                             <tbody>
+                                <tr>
+                                    <td width="30%">Bookcode</td>
+                                    <td width="1%">:</td>
+                                    <td>{{ dataPmt.bookcode }}</td>
+                                </tr>
                                 <tr>
                                     <td width="30%">Transno</td>
                                     <td width="1%">:</td>
