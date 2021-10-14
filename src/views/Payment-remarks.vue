@@ -177,7 +177,7 @@ export default {
             .catch((error) => {
                 console.log(error)
                 this.load = false
-                this.$toast.error(error.response.data.result, {
+                this.$toast.error(error.response.data.error, {
                     type: "error",
                     position: "top-right",
                     duration: 3000,
